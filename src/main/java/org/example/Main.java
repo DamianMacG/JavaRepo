@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -289,4 +290,58 @@ public class Main {
         }
         return prime;
     }
+
+    // Print Average and Sum for Scanner inputs
+    public static void inputThenPrintSumAndAverage() {
+        Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+        int count = 0;
+        while (true) {
+            String num = scanner.nextLine();
+            try {
+                int newNum = Integer.parseInt(num);
+                sum += newNum;
+                count++;
+            } catch (NumberFormatException nfe) {
+                break;
+            }
+        }
+        if (count > 0) {
+            int avg = Math.round((float) sum / count);  // Calculate average as a double
+            System.out.println("SUM = " + sum + " AVG = " + avg);
+        } else {
+            System.out.println("SUM = 0 AVG = 0");
+        }
+    }
+
+    // Get area needed to paint with multiple parameters
+    public static int getBucketCount(double width, double height, double areaPerBucket, int extraBuckets) {
+        if (extraBuckets < 0 || width <= 0 || height <= 0 || areaPerBucket <= 0) {
+            return -1;
+        }
+
+        double area = (width * height);
+        double bucketsNeededToBuy = area - (extraBuckets * areaPerBucket);
+
+        return (int) Math.ceil(bucketsNeededToBuy / areaPerBucket);
+
+    }
+
+    public static int getBucketCount(double width, double height, double areaPerBucket) {
+        if (width <= 0 || height <= 0 || areaPerBucket <= 0) {
+            return -1;
+        }
+        double area = width * height;
+        return (int) Math.ceil(area / areaPerBucket);
+    }
+
+    public static int getBucketCount(double area, double areaPerBucket) {
+        if (area <= 0 || areaPerBucket <= 0) {
+            return -1;
+        }
+        return (int) Math.ceil(area / areaPerBucket);
+
+    }
+
+    //
 }
