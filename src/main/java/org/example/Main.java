@@ -260,6 +260,33 @@ public class Main {
         int remainder = goal - big;
 
         return remainder <= smallCount;
+    }
 
+    // Largest Prime Number of a given value
+    public static int getLargestPrime(int number) {
+        if (number < 2) {
+            return -1;
+        }
+
+        int prime = -1;
+
+        for (int i = 2; i <= number; i++) {
+            if (number % i == 0) {
+                boolean isPrime = true;
+
+                // check if i is divisible further
+                for (int j = 2; j < i; j++) {
+                    if (i % j == 0) { // if i is divisible, then not a prime
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                if (isPrime) {
+                    prime = i;
+                }
+            }
+        }
+        return prime;
     }
 }
