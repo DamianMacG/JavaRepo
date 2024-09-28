@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(sumOfPositives(new int[]{6, 4, -5, 12}));
@@ -160,5 +163,103 @@ public class Main {
         return max;
     }
 
-    //
+    // Perfect number - positive integer which equals the sum of its divisors
+    public static boolean isPerfectNumber(int number) {
+        if (number < 1) {
+            return false;
+        }
+        int sum = 0;
+        for (int i = 1; i < number; i++) {
+            if (number % i == 0) {
+                sum += i;
+            }
+        }
+        return (sum == number);
+    }
+
+    // Numbers to words reversed
+    public static void numberToWords(int number) {
+        if (number < 0) {
+            System.out.println("Invalid Value");
+        }
+        if (number == 0) {
+            System.out.println("Zero");
+        }
+
+        Map<Integer, String> numberWordsMap = new HashMap<>();
+
+        numberWordsMap.put(0, "Zero");
+        numberWordsMap.put(1, "One");
+        numberWordsMap.put(2, "Two");
+        numberWordsMap.put(3, "Three");
+        numberWordsMap.put(4, "Four");
+        numberWordsMap.put(5, "Five");
+        numberWordsMap.put(6, "Six");
+        numberWordsMap.put(7, "Seven");
+        numberWordsMap.put(8, "Eight");
+        numberWordsMap.put(9, "Nine");
+        numberWordsMap.put(10, "Ten");
+
+        int reversedNumber = reverse(number);
+        int digitCountOriginal = getDigitCount(number);
+        int digitCountReversed = getDigitCount(reversedNumber);
+
+        // Loop through the reversed number and print corresponding words
+        while (reversedNumber > 0) {
+            int lastDigit = reversedNumber % 10;
+            System.out.println(numberWordsMap.get(lastDigit));
+            reversedNumber /= 10;
+        }
+
+        // If original number had leading zeros, print "Zero" for those
+        for (int i = 0; i < (digitCountOriginal - digitCountReversed); i++) {
+            System.out.println(numberWordsMap.get(0)); // Print "Zero" for each missing leading zero
+        }
+    }
+
+    public static int reverse(int number) {
+        int rev = 0;
+        int rem = 0;
+
+        while (number > 0 || number < 0) {
+            rem = number % 10;
+            rev = (rev * 10) + rem;
+            number = number / 10;
+        }
+        return rev;
+    }
+
+    public static int getDigitCount(int number) {
+        if (number < 0) {
+            return -1;
+        }
+
+        if (number == 0) {
+            return 1;
+        }
+
+        int count = 0;
+        while (number > 0) {
+            number /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    // Goal amount from two inout values where value has a set weight and must be exact to return true
+    public static boolean canPack(int bigCount, int smallCount, int goal) {
+        if (bigCount < 0 || smallCount < 0 || goal < 0) {
+            return false;
+        }
+
+        int big = bigCount * 5;
+
+        if (big > goal) {
+            big = goal - (goal % 5);
+        }
+        int remainder = goal - big;
+
+        return remainder <= smallCount;
+
+    }
 }
