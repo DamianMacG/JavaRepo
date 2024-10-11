@@ -7,6 +7,17 @@ public class Account {
     private String email;
     private String phoneNumber;
 
+    public Account() {
+    }
+
+    public Account(double balance, String name, String email, String phoneNumber, int accountNumber) {
+        this.accountNumber = accountNumber;
+        this.name = name;
+        this.balance = balance;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
     public void depositFunds(double input) {
         balance += input;
         System.out.println("Deposit Successful! New balance = " + balance);
