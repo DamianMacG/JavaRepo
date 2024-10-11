@@ -5,7 +5,7 @@ public class Account {
     private int accountNumber;
     private String name;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
 
     public void depositFunds(double input) {
         balance += input;
@@ -53,11 +53,11 @@ public class Account {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
