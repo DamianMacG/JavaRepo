@@ -1,5 +1,6 @@
 package katas;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -343,5 +344,31 @@ public class Main {
 
     }
 
-    // testing
+
+    // Smallest integer in an array
+
+    public static int findSmallestInt1(int[] args) {
+        int min = args[0];
+        for (int i = 1; i < args.length; i++) {
+            min = Math.min(min, args[i]);
+        }
+        return min;
+    }
+
+    public static int findSmallestInt2(int[] args) {
+        Arrays.sort(args);
+        return args[0];
+    }
+
+    // Remove white spaces in a string
+    public static String noSpace(final String x) {
+        return x.replace(" ", "");
+    }
+
+    // Counting sheep from an array if value is true, vs false, null etc.
+    public static int countSheeps(Boolean[] arrayOfSheeps) {
+        return (int) Arrays.stream(arrayOfSheeps)
+                .filter(sheep -> sheep != null && sheep)
+                .count();
+    }
 }
