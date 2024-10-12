@@ -3,8 +3,9 @@ package bankAccount;
 public class Main {
 
     public static void main(String[] args) {
-        Account account1 = new Account(500.0, "John Doe", "john.doe@example.com", "1234567890", 1001);
-
+//        Account account1 = new Account(500.0, "John Doe", "john.doe@example.com", "1234567890", 1001);
+        Account account1 = new Account();
+//        System.out.println(account2);
         // Test 1: Check initial balance
         System.out.println("Initial Balance: " + account1.getBalance());  // Expected: 500.0
 

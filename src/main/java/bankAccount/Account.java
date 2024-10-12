@@ -8,12 +8,21 @@ public class Account {
     private String phoneNumber;
 
     public Account() {
+        this(500.0, "DEEDEE", "dee.dee@example.com", "1234567890", 1001);
+        System.out.println("Helloooooo");
     }
 
     public Account(double balance, String name, String email, String phoneNumber, int accountNumber) {
+        System.out.println("Byyyeeeeee");
         this.accountNumber = accountNumber;
         this.name = name;
         this.balance = balance;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Account(String name, String email, String phoneNumber) {
+        this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
