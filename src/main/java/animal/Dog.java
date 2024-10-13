@@ -5,6 +5,6 @@ public class Dog extends Animal {
 //private String
 
     public Dog() {
-        super();
+        super("Mutt", "Biggish", 75);
     }
 }
