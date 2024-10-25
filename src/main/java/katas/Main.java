@@ -266,30 +266,32 @@ public class Main {
 
     // Largest Prime Number of a given value
     public static int getLargestPrime(int number) {
-        if (number < 2) {
+           // No prime numbers below 2 so return -1
+        if (n < 2) {
             return -1;
         }
 
-        int prime = -1;
-
-        for (int i = 2; i <= number; i++) {
-            if (number % i == 0) {
-                boolean isPrime = true;
-
-                // check if i is divisible further
-                for (int j = 2; j < i; j++) {
-                    if (i % j == 0) { // if i is divisible, then not a prime
-                        isPrime = false;
-                        break;
-                    }
-                }
-
-                if (isPrime) {
-                    prime = i;
-                }
+        // Start from n and go down to 2 - to find first/largest prime
+        for (int i = n; i >= 2; i--) {
+            if (isPrime(i)) {
+                return i;
             }
         }
-        return prime;
+        return -1;
+    }
+
+    private static boolean isPrime(int num) {
+        if (num < 2) return false;
+        if (num == 2) return true;
+        if (num % 2 == 0) return false;
+
+        // Check only odd numbers
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0) return false;
+        }
+
+        // If there are no factors found, return true
+        return true;
     }
 
     // Print Average and Sum for Scanner inputs
