@@ -9,11 +9,17 @@ public class Main {
 //        Dog dog = new Dog();
 //        doAnimalStuff(dog, "fast");
 
-        Dog doggo = new Dog("Doggo", 15);
-        doAnimalStuff(doggo, "fast");
+//        Dog doggo = new Dog("Doggo", 15);
+//        doAnimalStuff(doggo, "fast");
+//
+//        Dog retriever = new Dog("Lab", 65, "Floppy", "Swimmer");
+//        doAnimalStuff(retriever, "slow");
 
-        Dog retriever = new Dog("Lab", 65, "Floppy", "Swimmer");
-        doAnimalStuff(retriever, "slow");
+        Dog wolf = new Dog("Wolf", 40);
+        doAnimalStuff(wolf, "slow");
+
+        Fish goldie = new Fish("Goldfish", 0.25, 2, 3);
+        doAnimalStuff(goldie, "fast");
     }
 
     public static void doAnimalStuff(Animal animal, String speed) {
