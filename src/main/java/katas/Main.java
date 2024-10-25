@@ -265,8 +265,8 @@ public class Main {
     }
 
     // Largest Prime Number of a given value
-    public static int getLargestPrime(int number) {
-           // No prime numbers below 2 so return -1
+    public static int getLargestPrime(int n) {
+        // No prime numbers below 2 so return -1
         if (n < 2) {
             return -1;
         }
